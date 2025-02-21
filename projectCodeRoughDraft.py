@@ -6,10 +6,6 @@
 -Have either an option when creating a reminder where you can pick either to use specific times or range randomized times
     -So you could say, when this shows up, give me the options of 5 min until next remind, 20 min, or 30 min
     Or you could say, in the range of 15-30/20-40/40-60, pick a random number and set a reminder for that time
-
--I think this'll need to be done with lists of sepcific structures, idk how I'm going to create individual lists per reminder tho
-
-could do a basic dictionary that I dont alter and then create children from it that do?
 """
 from breezypythongui import EasyFrame
 
@@ -66,6 +62,7 @@ class SetReminder(EasyFrame):
 
 
     def randomTree(self):
+        """sets up the rand range for times"""
         self.addLabel(text = "What Range Do You Want The Reminder To Pick From?", row = 7, column = 0)
         self.addLabel(text = "Low:", row = 8, column = 0)
         self.lowRand = self.addIntegerField(value = 0, row = 8, column = 1)
@@ -75,28 +72,29 @@ class SetReminder(EasyFrame):
 
 
     def specificTree(self):
+        """sets up the spcified range for times"""
         self.addLabel(text = "How Many Minutes Between Each Repeat?", row = 10, column = 0)
         self.specificPeriod = self.addIntegerField(value = 0 , row = 11, column = 0)
         self.specificDone = self.addButton(text = "Done?", row = 12, column = 0, command = "") #goes to where specific times are handled, If I could figure out the source it could probably be in same module as random
 
-
+    #maybe do one True one False and have an if statement detect so It knows what to handle
     def randomTimes(self, remindNum):
+        """sets times to pass to set reminder, also a reroll button that runs it again"""
         low = self.lowRand.getNumber()
         high = self.highRand.getNumber()
         randCount = remindNum
         startTime = self.remTime.getNumber()
 
         for i in range(remindNum):
-            #num the bers
+            print("heyo")
+            #num the bers  (aren't actually registering as numbers)
             #should pick a rand three times and store
             #each of those should get put on a list of times building off the past one (will need to account for day overflow)
             #these then get passed to the set reminder module
 
 
-        
-
-
     def setReminder(self):
+        """eventually communicates with computer at large to set reminder"""
         self.addIntegerField() #we're not touching this one at all yet, not ready for it
 
 
@@ -107,20 +105,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-"""
-FINAL final criteria
-- A working GUI tkinter application with at least two windows.  -  need to figure this out
-- Implementing a modular approach in your application.  - yeah ok sure
-- Consistent clear navigation throughout the GUI application.  -  okie dokie
-- Use at least two images in your application(images should have alternate text).  - headers? Reminder Set/Reminder
-- Include at least three labels. - done
-- Include at least three buttons. - done
-- Include at least three call-back functions with each button, including the exit button. - use more buttons to open/submit sections
-- Implement secure coding best practices, including input validation to check if the user entered the correct data type,
-  make sure the entry box is not empty, etc.  - certain buttons in certain order
-"""
