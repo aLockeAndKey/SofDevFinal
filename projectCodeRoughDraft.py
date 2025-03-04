@@ -96,7 +96,7 @@ class SetReminder(EasyFrame):
 
     def setReminder(self):
         """eventually communicates with computer at large to set reminder"""
-        self.addIntegerField() #we're not touching this one at all yet, not ready for it
+        self.addIntegerField() #we're not touching this one yet, other problems to work out first
 
 
 
