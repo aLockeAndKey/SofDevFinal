@@ -1,18 +1,19 @@
 """
 -be able to schedule reminders to dates/times
 -Repeat reminders in their initial setting only, maybe let you save settings you like so you don’t have to set them up again and again
--Have a function where once a reminder pops up you can either dismiss, mark as completed, 
-    -bonus: enter a second option set that lets you set a second reminder for the same thing in a certain (or slightly randomized if you choose) set of time
+-Have a function where once a reminder pops up you can either dismiss or mark as completed
+    -the massage boxes don't do this, only output text, will need to use tkinter
 -Have either an option when creating a reminder where you can pick either to use specific times or range randomized times
     -So you could say, when this shows up, give me the options of 5 min until next remind, 20 min, or 30 min
-    Or you could say, in the range of 15-30/20-40/40-60, pick a random number and set a reminder for that time
+        -probably ditching this for only one time, could go back for later but not at present
+    -Or you could say, in the range of 15-30/20-40/40-60, pick a random number and set a reminder for that time
 """
 from breezypythongui import EasyFrame
 
 
 #ideal world I'd love to add more seperation between things
 #need to add variable checking whenever possible
-    #message boxes can be used for errors, need to set those nightmares up
+    #message boxes can be used for errors, need to set those up
 
 
 class SetReminder(EasyFrame):
@@ -77,17 +78,17 @@ class SetReminder(EasyFrame):
         self.specificPeriod = self.addIntegerField(value = 0 , row = 11, column = 0)
         self.specificDone = self.addButton(text = "Done?", row = 12, column = 0, command = "") #goes to where specific times are handled, If I could figure out the source it could probably be in same module as random
 
-    #maybe do one True one False and have an if statement detect so It knows what to handle
+    #maybe do one True one False and have an if statement detect so it knows what to handle
     def randomTimes(self, remindNum):
         """sets times to pass to set reminder, also a reroll button that runs it again"""
-        low = self.lowRand.getNumber()
+        self.low = self.lowRand.getNumber()
         high = self.highRand.getNumber()
         randCount = remindNum
         startTime = self.remTime.getNumber()
 
         for i in range(remindNum):
             print("heyo")
-            #num the bers  (aren't actually registering as numbers)
+            #info isnt actually registering as numbers, fix that
             #should pick a rand three times and store
             #each of those should get put on a list of times building off the past one (will need to account for day overflow)
             #these then get passed to the set reminder module
