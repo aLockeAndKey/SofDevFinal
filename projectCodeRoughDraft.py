@@ -100,19 +100,20 @@ class SetReminder(EasyFrame):
     def setReminder(self, spacingList = [], remindNum = 0):
         """eventually communicates with computer at large to set reminder"""
         """modified from the geeksforgeeks website on setting an alarm clock in tkinter"""
-        remHour = self.remHour 
-        remMin = self.remMin
+       def setReminder(self, spacingList = [], remindNum = 0):
+        """eventually communicates with computer at large to set reminder"""
+        """modified from the geeksforgeeks website on setting an alarm clock in tkinter"""
+        remHour = int(self.remHour.getValue())
+        remMin = int(self.remMin.getValue())
         remName = self.remName["text"]
 
-        ##set up the structure that repeats the reminder
-        
         while True:
-            set_alarm = f"{remHour}:{remMin}:{00}"
+            set_alarm = f"{remHour}:{remMin}:{0}"
+
             time.sleep(1)
-            current_time = datetime.now().strftime("%H:%M:%S") ##I belive that this line is what crashes the program, causes the program to stop responding
-            #1) try removing the now
-            #2) both of these are datetime modules but it wont read them as such
-            # I think it is a time/datetime conflict where, becuase they share so many modules, it doesn't know which one to prioritize
+
+            current_time = datetime.datetime.now().strftime("%H:%M:%S")
+
             if current_time == set_alarm:
                 self.messageBox(title = "REMINDER", message = remName)
 
