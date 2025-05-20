@@ -14,11 +14,9 @@
 """
 from breezypythongui import EasyFrame
 import tkinter
+import datetime #from datetime import date, datetime
 import time
-import datetime #if I say "from datetime import *" then it throws the error that time.sleep(1) has no attribute in datetime.time.
-#but if I remove it then datetime has no attribute "now"
 import random
-
 
 class SetReminder(EasyFrame):
     def __init__(self):
@@ -100,23 +98,22 @@ class SetReminder(EasyFrame):
     def setReminder(self, spacingList = [], remindNum = 0):
         """eventually communicates with computer at large to set reminder"""
         """modified from the geeksforgeeks website on setting an alarm clock in tkinter"""
-       def setReminder(self, spacingList = [], remindNum = 0):
-        """eventually communicates with computer at large to set reminder"""
-        """modified from the geeksforgeeks website on setting an alarm clock in tkinter"""
-        remHour = int(self.remHour.getValue())
-        remMin = int(self.remMin.getValue())
-        remName = self.remName["text"]
+        remHour = self.remHour.getValue()
+        remMin = self.remMin.getValue()
+        remName = self.remName.getValue()
 
         while True:
-            set_alarm = f"{remHour}:{remMin}:{0}"
+            set_alarm = f"{remHour}:{remMin}:{"00"}"
 
             time.sleep(1)
 
             current_time = datetime.datetime.now().strftime("%H:%M:%S")
 
+            print(current_time, set_alarm)
+
             if current_time == set_alarm:
                 self.messageBox(title = "REMINDER", message = remName)
-
+                break
 
     
     def randomTimes(self, remindNum):
@@ -141,22 +138,5 @@ class SetReminder(EasyFrame):
             spacingList.append(period)
 
         self.setReminder(self, spacingList, repCount)
-
-
-
-
-        
-
-
-
-def main():
-    SetReminder().mainloop()
-
-
-if __name__ == "__main__":
-    main()
-
-
-
 
 
