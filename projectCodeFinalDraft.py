@@ -104,7 +104,8 @@ class SetReminder(EasyFrame):
 
             current_time = datetime.datetime.now().strftime("%H:%M:%S")
 
-            print(current_time, set_alarm)
+            #print(current_time, set_alarm)
+            #if something is swong un-comment this to check if the times line up
 
             if current_time == set_alarm:
                 self.messageBox(title = "REMINDER", message = remName)
@@ -135,3 +136,10 @@ class SetReminder(EasyFrame):
         self.setReminder(self, spacingList, repCount)
 
 
+
+def main():
+    SetReminder().mainloop()
+
+
+if __name__ == "__main__":
+    main()
