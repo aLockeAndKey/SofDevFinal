@@ -1,17 +1,12 @@
-"""
--be able to schedule reminders to dates/times
--Repeat reminders in their initial setting only, maybe let you save settings you like so you don’t have to set them up again and again
--Have a function where once a reminder pops up you can either dismiss or mark as completed
-    -the massage boxes don't do this, only output text, will need to use tkinter
-    -this is an ideal world, i don't understand tkintr
--Have either an option when creating a reminder where you can pick either to use specific times or range randomized times
-    -So you could say, when this shows up, give me the options of 5 min until next remind, 20 min, or 30 min
-        -probably ditching this for only one time, could go back for later but not at present
-    -Or you could say, in the range of 15-30/20-40/40-60, pick a random number and set a reminder for that time
 
-
-    try import time and then time.sleep(x)
 """
+THIS PROGRAM IS NOT FULLY FUNCTIONAL.
+
+this program is intended to set reminders that would permit repeating more frequently than every day or hour. 
+Currently this program cannot preform any repeat functions as the structures required are not complete.
+If someone were to fix this for their own use then refer to the rough draft file to see the wip version. It is bugged (gave up), but the problems are contained to setReminder.
+"""
+
 from breezypythongui import EasyFrame
 import tkinter
 import datetime #from datetime import date, datetime
